@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .mybox {
+            padding: 20px;
+            border: 2px solid;
+            margin: 20px
+        }
+
+        .box {
+            padding: 5px;
+            border: 2px solid;
+            margin: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Todo(props) {
+            return (
+                <li className="box" >{props.todo}<button onClick={() => { props.deletTodo(props.x) }}>Delete</button></li>
+            )
+        }
+        function Todolist() {
+            var [todo, setTodo] = React.useState(["Srikanth", "Pradeep", "Mohan","bharath"])
+            function DeletTodo(ind) {
+                var temp = [...todo]
+                temp.splice(ind, 1)
+                setTodo([...temp])
+            }
+            return (
+
+                <ul className="mybox">
+                    {
+                        todo.map((ABC, i) => {
+                            return <Todo todo={ABC} deletTodo={DeletTodo} x={i} ></Todo>
+                        })
+                    }
+                </ul>
+            )
+        }
+        ReactDOM.render(<Todolist></Todolist>, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Food1(props) {
+            return (
+                <div>
+                    <h1>{props.list}</h1>
+                    {
+                        props.al.map((n) => {
+                            return <li>{n}</li>
+                        })
+                    }
+                </div>
+            )
+        }
+        function Food(props) {
+            var [x, setX] = React.useState(props.ivalue)
+            var ar = ["chapathi", "vankaya", "palakura", "thotakura", "kyabeji"]
+            var br = ["chicken", "mutton", "prounc", "fishes"]
+            var cr = ["10", "20", "50", "10000"]
+            return (
+
+
+                <div style={{ border: "2px solid", padding: "10px" }}>
+
+
+                    <div  style={{ border:" red 2px solid",padding:"10px" }}>
+                        <Food1 al={ar} list="Vege"></Food1>
+                    </div>
+
+                    <div style={{ border: " green 1px solid", padding: "10px" }}>
+                        <Food1 al={br} list=" NonVege"></Food1>
+                    </div>
+
+                    <div style={{ border: "red 1px solid", padding: "10px" }}>
+                        <Food1 al={cr} list=" Number"></Food1>
+                    </div>
+                </div>
+
+            )
+        }
+        ReactDOM.render(<div><Food></Food></div>, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

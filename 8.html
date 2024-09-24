@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function handleChange(ev) {
+            var element = ev.target;
+            console.log('element', element);
+            var fileRef = element.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(fileRef);
+
+            reader.onloadend = function () {
+                var src = reader.result.toString();
+                document.getElementById('im1').src = src
+            };
+        }
+        function Abc(ev) {
+            return (<div>
+
+                <input id="d1" onChange={(ev) => { handleChange(ev) }}type="file" />
+                <img src="" id="i1" />
+            </div>
+
+            )
+        }
+        ReactDOM.render(<Abc></Abc>, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

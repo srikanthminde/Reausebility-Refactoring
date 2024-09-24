@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+ 
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function Team(props){
+                return(
+                    <div>
+                    <h1>{props.tm}</h1>    
+                       
+
+                    </div>
+                )
+
+            }
+            function Abcd(props){
+                var [x,setX]=React.useState(props.ivalue)
+                return(
+                    <div style={{border:"2px solid",padding:"10px",margin:"10px",width:"200px"}}>
+                       
+                    <Team tm="App...!"></Team> 
+                        <div style={{border:"1px solid",padding:"10px",margin:"10px"}}>
+                        <h3>First</h3>
+                        <div style={{border:"1px solid",padding:"10px",margin:"10px",height:"150px"}}>
+                            <h3>Second</h3>
+                        <Team tm=""></Team>  <img src="https://p.urbanpro.com/tv-prod/member/photo/1787281-medium190.jpg" width="30px" style={{"border-radius":"10px"}}/><b>PRAVEEN</b></div>   
+
+                        <div style={{border:"1px solid",padding:"10px",margin:"10px",height:"150px"}}>
+                            <h3>Third</h3>
+                        <Team tm=""></Team> <img src="https://p.urbanpro.com/tv-prod/member/photo/1787281-medium190.jpg" width="30px" style={{"border-radius":"10px"}}/> <b>PRAVEEN</b></div>    
+                        </div>
+                        
+                    </div>
+                )
+            }
+            ReactDOM.render(<Abcd></Abcd>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

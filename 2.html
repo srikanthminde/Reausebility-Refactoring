@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+               function Abc(){
+                var[y,setY]=React.useState([])
+                function Addtodo(){
+                    var x=document.getElementById("d1").value
+                   setY([...y,x])
+                }
+                return(
+                    <div style={{border:"2px solid",padding:"15px",width:"300px"}}>
+                        <h1> Todolist</h1>
+                        <input type="text" id="d1"/> <button onClick={()=>{Addtodo()}}>add todo</button>
+                      
+
+                    {
+                        y.map((m)=>{
+                            return <li style={{backgroundColor:"red"}}>{m}<button>done</button><button>undo</button></li>
+                        })
+                    }    
+                    </div>
+                )
+               }
+               ReactDOM.render(<Abc></Abc>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

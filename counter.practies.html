@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function Counter (props){
+                var [x,setX]=React.useState(props.ivalue)
+                function inc(){
+                    setX(x+props.step)
+                }
+                function dec(){
+                    setX(x-props.step)
+                }
+                function reset(){
+                    setX(props.ivalue)
+                }
+                return (
+                    <div style={{border:"2px solid",width:"300px",padding:"10px",margin:"10px",height:"200px"}}>
+                        <h1>{props.children} Count:{x}</h1>
+                       <button onClick={()=>{inc()}}>Increment</button> 
+                       <button onClick={()=>{dec()}}>Decrement</button> 
+                       <button onClick={()=>{reset()}}>Reset</button> 
+                    </div>
+                )
+            }
+            ReactDOM.render(<div><Counter step={1} ivalue={1}>india</Counter><Counter step={1} ivalue={1}>pakistan</Counter></div>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

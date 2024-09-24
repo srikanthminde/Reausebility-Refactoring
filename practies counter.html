@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+            function Counter (){
+                var [x,setX]=React.useState(10)
+                function inc(){
+                    setX(x+10)
+                }
+                function dec(){
+                    setX(x-10)
+                }
+                function reset(){
+                    setX(0)
+                }
+                return (
+                    <div style={{border:"2px solid",width:"200px",padding:"10px",height:"200px"}}>
+                        <h1> Counter:{x}</h1>
+                     <button onClick={()=>{inc()}}>Increment</button>    
+                     <button onClick={()=>{dec()}}>Decrement</button>    
+                     <button onClick={()=>{reset()}}>Reset</button>   
+                    
+                    </div>
+
+                )
+            }
+            ReactDOM.render(<Counter></Counter>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

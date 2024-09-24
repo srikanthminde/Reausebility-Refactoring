@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    
+<body>
+        <div id="root"></div>
+        <script type="text/babel">
+                    function Teamb(props){
+                        return(
+                            <div>
+                        <h1>{props.tm}</h1>
+                        {
+                           props.ar1.map((g)=>{
+                                return <li>{g}</li>
+                            })
+                        }
+                    </div>
+                )
+              
+            }
+           
+            function Teams(props){
+                var [x,setX]=React.useState(props.ivalue)
+                var ar=["Rohit","surya","kishan","bhumra","hardik"]
+                var br=["kohli","siraj","devilears","maxwel","dinesh karthik"]
+                var cr=["Dhoni","shubamgill","gaikvad","moeinali","jaddu"]
+                
+            return ( 
+
+                <div style={{border:" red 5px solid",padding:"10px",margin:"30px"}}>
+
+                            <h1 style={{display:"center"}}> TEAMS</h1>
+                        <div style={{border:"3px solid",padding:"10px" }}>
+                            <Teamb ar1={ar} tm="MI"></Teamb>
+                        </div><br/>
+                        
+                        <div style={{border:" blue 3px solid",padding:"10px"}}>  
+                          <Teamb ar1={br} tm="RCB"></Teamb>
+                        </div><br/>
+                        <div style={{border:" pink 2px solid",padding:"10px"}}>
+                        <Teamb ar1={cr} tm="CSK"></Teamb>    
+                        </div>
+
+
+
+
+                </div>
+        
+            )
+            }
+            ReactDOM.render(<div><Teams></Teams></div>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

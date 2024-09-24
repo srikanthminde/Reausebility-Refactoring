@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+ 
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+           
+            function Todo(props){
+                return(
+                        <li style={{border:"1px solid",margin:"10px",padding:"10px",backgroundColor:props.todo.status==="cold"?"green":props.todo.status==="hot"?"lightpink":props.todo.status==="baboi"?"lightblue":props.todo.status==="chill"?"blue":""}}>{props.todo.title}</li>
+                )
+            }
+            function Todolist(props){
+            var [todo,setTodo]=React.useState([
+                {title:"praveen",status:"cold"}
+               ,{title:"srikanth",status:"hot"},
+                {title:"rajesh",status:"baboi"}
+               ,{title:"mallesh" ,status:"chill"}])
+            return(
+                <ul style={{border:"2px solid",padding:"10px",margin:"10px"}}>
+                {
+                    todo.map((todo)=>{
+                        return <Todo todo={todo}></Todo>
+                    })
+                }    
+                </ul>
+            )
+           }
+           ReactDOM.render(<Todolist></Todolist>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
+
+

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+     
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function Gang2(props){
+                return(
+                    <div>
+                    <h1>{props.boys}</h1>  
+                    {
+                        props.kdkl.map((m)=>{
+                            return <li>{m}</li>
+                        })
+                    }  
+                    </div>
+                )
+            }
+             function  Name(props){
+                var [x,setX]=React.useState(props.ivalue)
+                var ar=["malli","prathap","srikanth"]
+                var br=["rayavaram","mangol","kkp","gajwel"]
+                return(
+                    <div style={{border:"2px solid",padding:"10px"}}>
+
+                            <div style={{border:"2px solid",padding:"10px"}}>
+                            <Gang2 kdkl={ar}boys="rowdys"></Gang2>  
+                            </div><br/>
+
+                            <div  style={{border:"2px solid"}}>
+                            <Gang2 kdkl={br}boys="rowdys"></Gang2>  
+                            </div>
+
+                    </div>
+                    
+                )
+             }
+             ReactDOM.render(<div><Name></Name></div>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

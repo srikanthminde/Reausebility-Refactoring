@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+ 
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+        
+            function Abcd(){
+                var[x,setX]=React.useState(0)
+                var[y,setY]=React.useState(0)
+                var[z,setZ]=React.useState(0)
+                var[p,setP]=React.useState(0)
+
+                return(
+                    <div style={{border:"2px solid"}}>  <br/>   
+                                         
+                     <div style={{display:"flex"}}> <div style={{border:"1px solid",padding:"5px",margin:"10px", width:"100px" ,display:"inline-block"}}> <h5>cart items</h5><button onClick={(e)=>{reset(e)}}>X</button></div> <div style={{border:"1px solid",padding:"10px",margin:"10px",width:"100px",display:"inline-block"}}> <button>Total Carts</button></div> </div>  
+                    
+                        <div style={{border:"1px solid",padding:"5px",margin:"10px"}}> <h5> items 1:{x}</h5><button id="b1"  onClick={(e)=>(inc(e))} >+</button> <button id="d1" onClick={(e)=>{dec(e)}}>-</button><h5>{x}</h5><button onClick={(e)=>{reset(e)}}>reset</button> </div><br/>   
+                        <div style={{border:"1px solid",padding:"5px ",margin:"10px"}}> <h5> items 2: {y}</h5> <button id="b2" onClick={(e)=>(inc(e))}>+</button> <button id="d2" onClick={(e)=>{dec(e)}}>-</button><h5>{y}</h5><button onClick={(e)=>{reset(e)}}>reset</button></div><br/>
+                        <div style={{border:"1px solid",margin:"5px",padding:"10px"}}> <h5>items 3:{z}</h5> <button id="b3" onClick={(e)=>(inc(e))}>+</button> <button id="d3" onClick={(e)=>{dec(e)}}>-</button><h5> {z}</h5><button onClick={(e)=>{reset(e)}}>reset</button></div><br/>
+                        <div style={{border:"1px solid",padding:"5px",margin:"10px"}}> <h5>items 4:{p}</h5> <button id="b4" onClick={(e)=>(inc(e))}>+</button> <button id="d4" onClick={(e)=>{dec(e)}}>-</button><h5> {p}</h5><button onClick={(e)=>{reset(e)}}>reset</button></div> <br/>
+
+                     
+                    </div>
+                    
+                )
+                function inc(e){
+                    if(e.target.id=='b1')
+                    {
+                    setX(x+1)
+                    }
+                    if(e.target.id=='b2')
+                    {
+                    setY(y+1)
+                    }
+                    if(e.target.id=='b3')
+                    {
+                    setZ(z+1)
+                    }  if(e.target.id=='b4')
+                    {
+                    setP(p+1)
+                    }
+                 
+            }
+            function dec(e){
+                    if(e.target.id=='d1')
+                    {
+                    setX(x-1)
+                    }
+                    if(e.target.id=='d2')
+                    {
+                    setY(y-1)
+                    }
+                    if(e.target.id=='d3')
+                    {
+                    setZ(z-1)
+                    }  if(e.target.id=='d4')
+                    {
+                    setP(p-1)
+                    }
+                 
+            }
+            function reset(e){
+                setX(0)
+            }
+
+            function reset(e){
+                setY(0)
+            }
+            function reset(e){
+                setZ(0)
+            }
+            function reset(e){
+                setP(0)
+            }
+
+        }
+            ReactDOM.render(<div><Abcd></Abcd></div>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

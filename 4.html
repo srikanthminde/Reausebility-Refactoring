@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+ 
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function Abc(props){
+                var [x,setX]=React.useState(props.ivalue)
+                var [y,setY]=React.useState(props.ivalue)
+                function inc1(){
+                    setY(y+props.step)
+                }
+                function inc(){
+                    setX(x+props.step)
+
+                }
+
+                return(
+                    <div style={{border:"1px solid",padding:"10px",margin:"10px"}}>
+                        <h2> vallyabal</h2>
+
+                        <h4>{props.children} :{y}</h4>
+                        <button onClick={()=>{inc1()}}> servies point </button>
+                      
+
+                        <h4>{props.children} :{x}</h4>                        
+                        <button onClick={()=>{inc()}}> Indiapoint</button>   
+ 
+
+                    </div>
+                )  
+            }
+                 ReactDOM.render(<div>
+                <h1>India Score </h1> <Abc step={1} ivalue={1} >india</Abc> 
+                <h1>Pakistan Score</h1><Abc ivalue={1} step={1} >pakistan </Abc>
+                </div>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

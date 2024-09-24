@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+ 
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function Team(){
+                var [x,setX]=React.useState(["kohli","siraj","bhumra","pandya","surya","rohith","panth","dhoni","head","jaddu"])
+                var [b,setB]=React.useState([""])
+
+        function remove1(i)
+      {
+       
+       var temp=[...x];
+
+       setB([...b,temp[i]]);
+       
+        temp.splice(i,1);
+       
+        setx([...temp]);
+
+     }
+     function remove2(i)
+     {
+         
+       var temp=[...b];
+
+       setx([...x,temp[i]]);
+       
+        temp.splice(i,1);
+       
+        setb([...temp]);
+
+   }
+                return(
+                    <div style={{display:"flex",}}>
+                   <div style={{border:"2px solid",padding:"10px"}}>  {b.length}<div>Team1</div>{x.map((e,i)=>{return <li style={{color:'green'}}  onClick={()=>{remove1(i)}}>{e}</li>})}</div>
+                   <div style={{'margin-left':'40px',border:"2px solid blue",padding:"10px"}}>
+                    <div>{b.length} <div>Team2</div> {b.map((e,i)=>{return <li style={{color:'red'}}  onClick={()=>{remove2(i)}}>{e}</li>})}</div>
+
+            </div>
+           </div>
+                   
+                
+                )
+              
+            }
+            ReactDOM.render(<Team></Team>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+         
+          function Todolist(){
+            var [todos,setTodos]=React.useState([])
+            
+            function addTodo(){
+                var x=document.getElementById("d1").value
+                setTodos([...todos,x])
+            }
+              
+            return(
+                <div style={{border:"1px solid",width:"250px",padding:"10px"}}>
+                    <input type="text" id="d1"/>
+                    <button onClick={()=>{addTodo()}} >add todo</button>
+                <ul>
+                 
+                {
+                    todos.map((m)=>{
+                        return <li>{m}</li>
+                        
+                    })
+                }   
+                </ul>    
+                </div>
+            )
+           
+          }
+        
+          function App(){
+            var[newtodolist,setNewtodolist]=React.useState([])
+            function addTodo(){
+                setNewtodolist([...newtodolist,1])
+            }
+                return <div style={{border:"2px solid",padding:"10px",width:"300px"}}>
+                <button onClick={()=>{addTodo()}}>Add todo</button><br/>
+                        
+                    {
+                        newtodolist.map((m)=>{
+                            return <Todolist/>
+                        })
+                    }
+                        
+                        </div>
+
+            }
+            
+            ReactDOM.render(<App></App>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
